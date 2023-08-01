@@ -17,6 +17,10 @@ YAML
 }
 
 module "deployment" {
+  # disable wait for all pods be ready.
+  #
+  wait_for_rollout = false
+
   depends_on = [resource.kubectl_manifest.ns]
 
   source  = "terraform-iaac/deployment/kubernetes"
