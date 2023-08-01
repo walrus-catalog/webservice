@@ -16,7 +16,7 @@ It will generate an access endpoint as output for your web service, allowing it 
 | Name | Version |
 |------|---------|
 | <a name="provider_kubectl"></a> [kubectl](#provider\_kubectl) | 1.14.0 |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | n/a |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.19.0 |
 
 ## Modules
 
