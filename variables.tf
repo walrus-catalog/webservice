@@ -61,26 +61,14 @@ variable "name" {
   default     = ""
 }
 # @hidden
-variable "seal_metadata_application_name" {
+variable "seal_metadata_service_name" {
   type        = string
-  description = "Seal metadata application name."
+  description = "Seal metadata service name."
   default     = ""
 }
 # @hidden
-variable "seal_metadata_application_instance_name" {
+variable "seal_metadata_namespace_name" {
   type        = string
-  description = "Seal metadata application instance name."
-  default     = ""
-}
-# @hidden
-variable "seal_metadata_project_name" {
-  type        = string
-  description = "Seal metadata project name."
-  default     = ""
-}
-# @hidden
-variable "seal_metadata_module_name" {
-  type        = string
-  description = "Seal metadata module name."
+  description = "Seal metadata namespace name."
   default     = ""
 }
