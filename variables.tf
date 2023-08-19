@@ -18,6 +18,13 @@ variable "env" {
   description = "Name and value pairs to set as the environment variables"
   default     = {}
 }
+# @label "Replicas"
+# @group "Basic"
+variable "replicas" {
+  type        = number
+  description = "Replicas to deploy"
+  default     = 1
+}
 # @group "Resources"
 # @label "CPU Request"
 variable "request_cpu" {

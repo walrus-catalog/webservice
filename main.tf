@@ -12,12 +12,17 @@ module "deployment" {
   #
   wait_for_rollout = false
 
+  # always pull latest version avoid fake updating.
+  #
+  image_pull_policy = "Always"
+
   source  = "terraform-iaac/deployment/kubernetes"
   version = "1.4.2"
 
   name      = local.name
   namespace = local.namespace
   image     = var.image
+  replicas  = var.replicas
   resources = {
     request_cpu    = var.request_cpu == "" ? null : var.request_cpu
     limit_cpu      = var.limit_cpu == "" ? null : var.limit_cpu
