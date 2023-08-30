@@ -16,8 +16,9 @@ module "deployment" {
   #
   image_pull_policy = "Always"
 
-  source  = "terraform-iaac/deployment/kubernetes"
-  version = "1.4.2"
+  # Use local paths to avoid accessing external networks
+  # This module comes from terraform registry "terraform-iaac/deployment/kubernetes 1.4.2"
+  source  = "./modules/deployment/kubernetes"
 
   name      = local.name
   namespace = local.namespace
@@ -34,8 +35,9 @@ module "deployment" {
 
 module "service" {
 
-  source  = "terraform-iaac/service/kubernetes"
-  version = "1.0.4"
+  # Use local paths to avoid accessing external networks
+  # This module comes from terraform registry "terraform-iaac/service/kubernetes 1.0.4"
+  source  = "./modules/service/kubernetes"
 
   app_name      = local.name
   app_namespace = local.namespace
