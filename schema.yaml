@@ -1,0 +1,98 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template webservice
+  version: v0.0.3
+components:
+  schemas:
+    variables:
+      required:
+      - image
+      type: object
+      properties:
+        image:
+          title: Image Name
+          type: string
+          description: Docker image name
+          x-walrus-ui:
+            group: Basic
+        ports:
+          title: Ports
+          type: array
+          description: Service ports to expose
+          default:
+          - 80
+          items:
+            type: number
+          x-walrus-ui:
+            group: Basic
+        env:
+          title: Environment Variables
+          type: object
+          description: Name and value pairs to set as the environment variables
+          additionalProperties:
+            type: string
+          x-walrus-ui:
+            group: Basic
+        replicas:
+          title: Replicas
+          type: number
+          description: Replicas to deploy
+          default: 1
+          x-walrus-ui:
+            group: Basic
+        request_cpu:
+          title: CPU Request
+          type: string
+          description: CPU request. e.g. 0.5, 1, 2
+          default: '0.1'
+          x-walrus-ui:
+            group: Resources
+        request_memory:
+          title: Memory Request
+          type: string
+          description: Memory request. e.g. 128Mi, 512Mi, 1Gi, 2Gi, 4Gi
+          default: 128Mi
+          x-walrus-ui:
+            group: Resources
+        limit_cpu:
+          title: CPU Limit
+          type: string
+          description: CPU limit. e.g. 0.5, 1, 2
+          default: ''
+          x-walrus-ui:
+            group: Resources
+        limit_memory:
+          title: Memory Limit
+          type: string
+          description: Memory limit. e.g. 128Mi, 512Mi, 1Gi, 2Gi, 4Gi
+          default: ''
+          x-walrus-ui:
+            group: Resources
+        namespace:
+          title: Namespace
+          type: string
+          description: Namespace to deploy. Auto-generated if empty.
+          default: ''
+          x-walrus-ui:
+            group: Advanced
+        name:
+          title: Deployment Name
+          type: string
+          description: Name of the deployment resource. Auto-generated if empty.
+          default: ''
+          x-walrus-ui:
+            group: Advanced
+        walrus_metadata_service_name:
+          title: walrus_metadata_service_name
+          type: string
+          description: Walrus metadata service name.
+          default: ''
+          x-walrus-ui:
+            hidden: true
+        walrus_metadata_namespace_name:
+          title: walrus_metadata_namespace_name
+          type: string
+          description: Walrus metadata namespace name.
+          default: ''
+          x-walrus-ui:
+            hidden: true
