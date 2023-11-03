@@ -1,7 +1,6 @@
 openapi: 3.0.3
 info:
   title: OpenAPI schema for template webservice
-  version: v0.0.3
 components:
   schemas:
     variables:
