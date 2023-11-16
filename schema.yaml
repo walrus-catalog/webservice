@@ -28,6 +28,7 @@ components:
           title: Environment Variables
           type: object
           description: Name and value pairs to set as the environment variables
+          default: {}
           additionalProperties:
             type: string
           x-walrus-ui:
@@ -43,7 +44,7 @@ components:
           title: CPU Request
           type: string
           description: CPU request. e.g. 0.5, 1, 2
-          default: '0.1'
+          default: "0.1"
           x-walrus-ui:
             group: Resources
         request_memory:
@@ -57,41 +58,53 @@ components:
           title: CPU Limit
           type: string
           description: CPU limit. e.g. 0.5, 1, 2
-          default: ''
+          default: ""
           x-walrus-ui:
             group: Resources
         limit_memory:
           title: Memory Limit
           type: string
           description: Memory limit. e.g. 128Mi, 512Mi, 1Gi, 2Gi, 4Gi
-          default: ''
+          default: ""
           x-walrus-ui:
             group: Resources
         namespace:
           title: Namespace
           type: string
           description: Namespace to deploy. Auto-generated if empty.
-          default: ''
+          default: ""
           x-walrus-ui:
             group: Advanced
         name:
           title: Deployment Name
           type: string
           description: Name of the deployment resource. Auto-generated if empty.
-          default: ''
+          default: ""
           x-walrus-ui:
             group: Advanced
-        walrus_metadata_service_name:
-          title: walrus_metadata_service_name
-          type: string
-          description: Walrus metadata service name.
-          default: ''
+        context:
+          title: context
+          type: object
+          description: |
+            Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
+
+            Examples:
+            ```
+            context:
+              project:
+                name: string
+                id: string
+              environment:
+                name: string
+                id: string
+              resource:
+                name: string
+                id: string
+            ```
+          default: {}
+          additionalProperties:
+            type: object
           x-walrus-ui:
+            group: Basic
             hidden: true
-        walrus_metadata_namespace_name:
-          title: walrus_metadata_namespace_name
-          type: string
-          description: Walrus metadata namespace name.
-          default: ''
-          x-walrus-ui:
-            hidden: true
+
